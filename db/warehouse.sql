@@ -134,4 +134,3 @@ CREATE TABLE IF NOT EXISTS meat_poultry_wareouse.phone (
     REFERENCES meat_poultry_wareouse.business (business_id)
     ON DELETE NO ACTION
     ON UPDATE CASCADE);
-
