@@ -7,4 +7,8 @@
         <li>Create alert and prompts using aws</li>
         <li>Save reports on aws</li>
     <ol>
+
+## Solutions
+### Designed model
+<img src="images/data_model.png">
 </p>
