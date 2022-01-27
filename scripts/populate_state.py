@@ -13,4 +13,4 @@ con = db_con(dbname=db)
 
 state_df = pd.read_csv('data/states.csv')
 
-execute_many(conn=con, df=state_df, table='state')
+execute_many(conn=con, df=state_df, table='state', n_cols=2)
