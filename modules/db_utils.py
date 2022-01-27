@@ -43,7 +43,7 @@ def exc_query(con, query):
 
 # from https://naysan.ca/2020/05/09/pandas-to-postgresql-using-psycopg2-bulk-insert-performance-benchmark/
 
-def execute_many(conn, df, table):
+def execute_many(conn, df, table, n_cols):
     """
     Using cursor.executemany() to insert the dataframe
     """
@@ -51,8 +51,9 @@ def execute_many(conn, df, table):
     tuples = [tuple(x) for x in df.to_numpy()]
     # Comma-separated dataframe columns
     cols = ','.join(list(df.columns))
+    text = "INSERT INTO %s(%s) VALUES({})".format(','.join(['%%s' for i in range(n_cols)]))
     # SQL quert to execute
-    query  = "INSERT INTO %s(%s) VALUES(%%s,%%s)" % (table, cols)
+    query  = text % (table, cols)
     cursor = conn.cursor()
     try:
         cursor.executemany(query, tuples)
