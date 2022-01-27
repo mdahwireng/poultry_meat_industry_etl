@@ -6,7 +6,7 @@
         <li>Create pipelines using spark, airflow and where possible dbt for the update and visualization of the industry progress</li>
         <li>Create alert and prompts using aws</li>
         <li>Save reports on aws</li>
-    <ol>
+    </ol>
 
 ## Solutions
 ### Designed model
