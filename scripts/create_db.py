@@ -1,7 +1,7 @@
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join("./")))
-from modules.db_con import db_con
+from modules.db_utils import db_con, exc_query
 
 db = "meat_poultry_wh"
 query1 = """CREATE DATABASE {}"""
@@ -128,18 +128,6 @@ CREATE TABLE IF NOT EXISTS phone (
     ON DELETE NO ACTION
     ON UPDATE CASCADE);
 """
-
-def exc_query(con, query):
-  if con:
-      cur = con.cursor()
-      try:
-          cur.execute(query)
-          cur.close()
-          print('Query executed successfuly!\n')
-      except Exception as e:
-          print('Query not executed...\nError: {}\n'.format(e))
-          con.rollback()
-          cur.close()
 
 # create warehouse
 con = db_con()
