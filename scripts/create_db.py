@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS city (
 CREATE TABLE IF NOT EXISTS activity (
   activity_id SERIAL NOT NULL,
   activity_name TEXT NOT NULL,
-  insert_date DATE NOT NULL,
+  insert_date DATE NOT NULL DEFAULT CURRENT_DATE,
   PRIMARY KEY (activity_id));
 
 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS activity (
 CREATE TABLE IF NOT EXISTS company (
   company_id SERIAL NOT NULL,
   company_name VARCHAR(100) NOT NULL,
-  insert_date DATE NOT NULL,
+  insert_date DATE NOT NULL DEFAULT CURRENT_DATE,
   PRIMARY KEY (company_id));
 
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS business (
   city_id INT NOT NULL,
   address VARCHAR(100) NOT NULL,
   zip VARCHAR(5) NOT NULL,
-  insert_date DATE NOT NULL,
+  insert_date DATE NOT NULL DEFAULT CURRENT_DATE,
   PRIMARY KEY (business_id),
   CONSTRAINT fk_business_company_id
     FOREIGN KEY (company_id)
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS establishment (
   est_id VARCHAR(50) NOT NULL,
   bussiness_id INT NOT NULL,
   grant_date DATE NOT NULL,
-  insert_date DATE NOT NULL,
+  insert_date DATE NOT NULL DEFAULT CURRENT_DATE,
   PRIMARY KEY (est_id),
   CONSTRAINT fk_establishment_business_id
     FOREIGN KEY (bussiness_id)
