@@ -131,6 +131,7 @@ CREATE TABLE IF NOT EXISTS phone (
 
 # create warehouse
 con = db_con()
+
 exc_query(con=con, query=query1.format(db))
 
 # connect to warehouse
